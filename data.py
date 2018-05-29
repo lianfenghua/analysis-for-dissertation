@@ -57,6 +57,6 @@ class data:
 if __name__ == "__main__":
     cdcl = data(1e-06, 200, 'cdcl', period=5.41, nperiods=1).load_data()
     meanCd = -2*cdcl['Fx'].mean()
-    print meanCd
+    print(meanCd)
     
     
