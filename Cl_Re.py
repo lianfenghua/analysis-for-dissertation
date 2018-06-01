@@ -8,11 +8,9 @@ from data import data
 import constants as c
 
 # 读取数据
-#ref = np.loadtxt('ClAmplitude.txt')
 Da = c.Da
 Re = c.Re
 period = c.period
-#Cl_amplitude = c.Cl_amplitude
 
 #设置tex及字体
 plt.rc('font', **{'family':'serif','serif':['times']})
@@ -21,19 +19,20 @@ plt.rc('text', usetex=True)
 #设置横纵坐标的名称以及对应字体格式
 font = {'family': 'Times New Roman',
         'weight': 'normal',
-        'size'  : 10.5,
+        'size'  : 15,
         }
 
 #marker = itertools.cycle(('o', '^', 's'))
 #linestyle = itertools.cycle(('-', '--', '-.'))
-color = ['b', 'g', 'r']
+color = ['b', 'g', 'r', 'c']
+marker = 'o'
 marker = ['o', '^', 'v']
-linestyle = ['-', '--', '-.']
+linestyle = ['-', '--', '-.', ':']
 
 fig, ax = plt.subplots(dpi=200)
 
 #设置坐标刻度值的大小以及刻度值的字体
-plt.tick_params(labelsize=10.5)  
+plt.tick_params(labelsize=15)  
 labels = ax.get_xticklabels() + ax.get_yticklabels()
 [label.set_fontname('Times New Roman') for label in labels]
 
@@ -52,46 +51,33 @@ for i in range(len(Da)):
     for k in range(len(rmsCl[i])):
         print('%.4f' % rmsCl[i][k])
     print(' ')
-    for k in range(len(rmsClp[i])):
-        print('%.4f' % rmsClp[i][k])
-    print(' ')
-    for k in range(len(rmsClf[i])):
-        print('%.4f' % rmsClf[i][k])
+    # for k in range(len(rmsClp[i])):
+    #     print('%.4f' % rmsClp[i][k])
+    # print(' ')
+    # for k in range(len(rmsClf[i])):
+    #     print('%.4f' % rmsClf[i][k])
+    # print(' ')
     # Plot the data
     ax.plot(Re, rmsCl[i], color=color[i],
             marker=marker[0], markersize=3,
     	    linestyle=linestyle[i], linewidth=1,
-        	label=r"$Da={}, C_{}$".format(Da[i], "L'"))
+        	label=r"$Da={},\,$".format(Da[i])+r"$C_{L'}$")
     ax.plot(Re, rmsClp[i], color=color[i],
             marker=marker[1], markersize=3,
     	    linestyle=linestyle[i], linewidth=1,
-        	label=r"$Da={}, C_{}$".format(Da[i], "L'p"))
+        	label=r"$Da={},\,$".format(Da[i])+r"$C_{L'p}$")
     ax.plot(Re, rmsClf[i], color=color[i],
             marker=marker[2], markersize=3,
     	    linestyle=linestyle[i], linewidth=1,
-        	label=r"$Da={}, C_{}$".format(Da[i], "L'f"))
+        	label=r"$Da={},\,$".format(Da[i])+r"$C_{L'f}$")
 
-
-# Plot data from reference
-#ax.plot(ref[:,0], ref[:,1], 'd', markersize=4,
-#        label='Solid from Jeongyoung Park(1998)')
-
-
-# Plot solid data
-""" Re = c.Re_solid
-Cl_amplitude_solid = c.Cl_amplitude_solid
-ax.plot(Re, Cl_amplitude_solid, marker=marker.next(), markersize=2,
-        linewidth=1, linestyle=linestyle.next(),
-        label='Solid')
- """
-
-
+# Show figures
 ax.set_xlabel(r'$Re$', fontdict=font)
 ax.set_ylabel(r"$C_{L'}$", fontdict=font)
 
 plt.legend()
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('rmsCl_Re.pdf')
+plt.savefig('Clpf_Reaaa.pdf')
 plt.show()
 

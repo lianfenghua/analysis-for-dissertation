@@ -24,9 +24,10 @@ font = {'family': 'Times New Roman',
 
 #marker = itertools.cycle(('o', '^', 's'))
 #linestyle = itertools.cycle(('-', '--', '-.'))
-color = ['b', 'g', 'r']
-marker = ['^', 'v', 'o']
-linestyle = ['-', '--', '-.']
+color = ['b', 'g', 'r', 'c']
+marker = 'o'
+#marker = ['^', 'v']
+linestyle = ['-', '--', '-.', ':']
 
 fig, ax = plt.subplots(dpi=200)
 
@@ -43,31 +44,32 @@ for i in range(len(Da)):
     for j in range(len(Re)):
         cdcl = data(Da[i], Re[j], 'cdcl', period[i][j], nperiods=1).load_data()
         meanCd[i][j] = -2*cdcl['Fxc'].mean()
-        meanCdp[i][j] = -2*cdcl['Fpx'].mean()
-        meanCdf[i][j] = meanCd[i][j] - meanCdp[i][j]
+#        meanCdp[i][j] = -2*cdcl['Fpx'].mean()
+#        meanCdf[i][j] = meanCd[i][j] - meanCdp[i][j]
     # print
     print('Da =', Da[i])
     for k in range(len(meanCd[i])):
         print('%.4f' % meanCd[i][k])
     print(' ')
-    for k in range(len(meanCdp[i])):
-        print('%.4f' % meanCdp[i][k])
-    print(' ')
-    for k in range(len(meanCdf[i])):
-        print('%.4f' % meanCdf[i][k])
+    # for k in range(len(meanCdp[i])):
+    #     print('%.4f' % meanCdp[i][k])
+    # print(' ')
+    # for k in range(len(meanCdf[i])):
+    #     print('%.4f' % meanCdf[i][k])
+    # print(' ')
     # Plot the data
-    ax.plot(Re, meanCdp[i], color=color[i],
-            marker=marker[0], markersize=3,
-            linestyle=linestyle[i], linewidth=1,
-            label=r'$Da={}, C_{}$'.format(Da[i], 'Dp'))
-    ax.plot(Re, meanCdf[i], color=color[i],
-            marker=marker[1], markersize=3,
-            linestyle=linestyle[i], linewidth=1,
-            label=r'$Da={}, C_{}$'.format(Da[i], 'Df'))
+    # ax.plot(Re, meanCdp[i], color=color[i],
+    #         marker=marker[0], markersize=3,
+    #         linestyle=linestyle[i], linewidth=1,
+    #         label=r'$Da={},\,$'.format(Da[i])+r'$C_{Dp}$')
+    # ax.plot(Re, meanCdf[i], color=color[i],
+    #         marker=marker[1], markersize=3,
+    #         linestyle=linestyle[i], linewidth=1,
+    #         label=r'$Da={},\,$'.format(Da[i])+r'$C_{Df}$')
     ax.plot(Re, meanCd[i], color=color[i],
-            marker=marker[2], markersize=3,
+            marker=marker, markersize=3,
             linestyle=linestyle[i], linewidth=1,
-            label=r'$Da={}, C_D$'.format(Da[i]))
+            label=r'$Da={}$'.format(Da[i]))
 
 # Show figures
 ax.set_xlabel(r'$Re$', fontdict=font)
@@ -76,6 +78,7 @@ ax.set_ylabel(r'$C_D$', fontdict=font)
 plt.legend()
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('meanCdpf_Re_new.pdf')
+plt.savefig('Cdpf_Reaaa.pdf')
+#plt.savefig('Cd_Reaaa.pdf')
 plt.show()
 

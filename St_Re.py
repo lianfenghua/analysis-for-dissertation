@@ -10,8 +10,6 @@ Da = c.Da
 Re = c.Re
 period = c.period
 St = 1./np.array(period)
-for i in range(len(St[0])):
-    print('%.4f' % St[0][i])
 
 #ref = np.loadtxt('St.txt')
 
@@ -25,10 +23,14 @@ font = {'family': 'Times New Roman',
         'size'  : 15,
         }
 
+# marker = itertools.cycle(('o', 's', '^'))
+# linestyle = itertools.cycle(('-', '-.', '--'))
+color = ['b', 'g', 'r', 'c']
+marker = ['o', 's', '^', 'v']
+linestyle = ['-', '--', '-.', ':']
+
 # 画图
 fig, ax = plt.subplots()
-marker = itertools.cycle(('o', 's', '^'))
-linestyle = itertools.cycle(('-', '-.', '--'))
 
 #设置坐标刻度值的大小以及刻度值的字体
 plt.tick_params(labelsize=15)  
@@ -36,8 +38,9 @@ labels = ax.get_xticklabels() + ax.get_yticklabels()
 [label.set_fontname('Times New Roman') for label in labels]
 
 for i in range(len(Da)):
-    ax.plot(Re, St[i], marker=marker.next(), markersize=2,
-            linewidth=1, linestyle=linestyle.next(),
+    ax.plot(Re, St[i], color=color[i],
+            marker=marker[i], markersize=2,
+            linestyle=linestyle[i], linewidth=1,
             label=r'$Da={}$'.format(Da[i]))
 
 
@@ -63,6 +66,6 @@ ax.set_ylabel(r'$St$', fontdict=font)
 plt.legend(prop=font)
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('St_Re_new.pdf')
+plt.savefig('St_Re2.pdf')
 plt.show()
 

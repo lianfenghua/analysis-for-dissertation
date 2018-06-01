@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''平均量沿圆柱表面的变化'''
+'''平均量沿圆柱表面的变化，多个达西数在同一个图中'''
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

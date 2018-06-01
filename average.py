@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+'''创建平均流场数据。
+    flow.dat: 流场数据
+    center.dat: 沿尾迹中心线的分布
+    surface.dat: 沿圆柱表面的分布'''
 import pandas as pd
 import numpy as np
 import csv
