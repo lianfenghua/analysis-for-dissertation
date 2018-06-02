@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''升力系数与文献的对比'''
+'''平均升力系数和文献的对比'''
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
@@ -7,10 +7,9 @@ import itertools
 import constants as c
 
 # 读取数据
-Da = c.Da[0]
+Da = 1e-05
 Re = c.Re
 Cl_amplitude = c.Cl_amplitude[0]
-
 ref = np.loadtxt('ClAmplitude.txt')
 
 #设置tex及字体
@@ -36,7 +35,7 @@ ax.plot(Re, Cl_amplitude, label=r'$Da={}$'.format(Da))
 
 # Plot data from reference
 ax.plot(ref[:,0], ref[:,1], 'd', markersize=4,
-        label='Solid from Jeongyoung Park (1998)')
+        label='Solid (Jeongyoung Park, 1998)')
 
 # Plot solid data
 """ Re = c.Re_solid
@@ -54,6 +53,6 @@ ax.set_ylabel(r'$C_L^A$', fontdict=font)
 plt.legend(prop=font)
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('validation_Cl_new.pdf')
+plt.savefig('validation_Cl2.pdf')
 plt.show()
 

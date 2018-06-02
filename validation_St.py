@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+'''St和文献的对比'''
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
@@ -6,7 +7,7 @@ import itertools
 import constants as c
 
 # 读取数据
-Da = c.Da[0]
+Da = 1e-05
 Re = c.Re
 period = c.period[0]
 St = 1./np.array(period)
@@ -34,10 +35,9 @@ labels = ax.get_xticklabels() + ax.get_yticklabels()
 [label.set_fontname('Times New Roman') for label in labels]
 
 # Plot new data
-for i in reversed(range(1)):
-    ax.plot(Re, St,
-            linestyle=linestyle.next(),
-            label=r'$Da={}$'.format(Da))
+ax.plot(Re, St,
+        linestyle=linestyle.next(),
+        label=r'$Da={}$'.format(Da))
 # marker=marker.next(),markersize=2,linewidth=1, 
 #ax.set_xlim(40, 280)
 #ax.set_ylim(0, 0.3)
