@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+'''平均误差随雷诺数的变化'''
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools

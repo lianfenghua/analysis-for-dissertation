@@ -16,8 +16,8 @@ class data:
         self.data_name = data_name
         self.period = period
         self.nperiods = nperiods
-        self.fname = '../data/new/{0}_{1}/unpcy_{1}_{2}.dat'.format(Da, Re, data_name)
-#        self.fname = '../data/{0}_{1}/unpcy_{1}_{2}.dat'.format(Da, Re, data_name) #old
+#        self.fname = '../data/new/{0}_{1}/unpcy_{1}_{2}.dat'.format(Da, Re, data_name)
+        self.fname = '../data/old/{0}_{1}/unpcy_{1}_{2}.dat'.format(Da, Re, data_name) #old
         
     def load_data(self):
         '''Load the calculated data as a DataFrame object.'''
