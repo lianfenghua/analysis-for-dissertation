@@ -8,7 +8,7 @@ import itertools
 import constants as c
 
 #参数
-Da = 0.001
+Da = 1e-05
 Re = [50, 70, 100, 120, 160, 200]
 
 #设置tex及字体
@@ -20,10 +20,14 @@ font = {'family': 'Times New Roman',
         'weight': 'normal',
         'size'  : 20.5,
         }
+font2 = {'family': 'Times New Roman',
+        'weight': 'normal',
+        'size'  : 18,
+        }
 
 linestyle = itertools.cycle(('-', '--', '-.', ':', (0, (3, 5, 1, 5, 1, 5)), (0, (1, 1))))
 
-'''
+
 #u
 fig, ax = plt.subplots(dpi=200)
 
@@ -45,10 +49,10 @@ ax.set_xlim(-30, 30)
 ax.set_xlabel(r'$x$', fontdict=font)
 ax.set_ylabel(r'$\overline{u}$', fontdict=font)
 
-plt.legend()
+plt.legend(prop=font2)
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('average/u_x_{}.pdf'.format(Da))
+plt.savefig('average/u_x_{}new.pdf'.format(Da))
 plt.show()
 '''
 
@@ -79,7 +83,7 @@ fig.tight_layout()
 plt.savefig('average/u_x_wake_{}.pdf'.format(Da))
 plt.show()
 
-'''
+
 #Cp
 fig, ax = plt.subplots(dpi=200)
 
@@ -104,7 +108,7 @@ ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
 plt.savefig('average/Cp_x_{}.pdf'.format(Da))
 plt.show()
-'''
+
 
 #放大Cp
 fig, ax = plt.subplots(dpi=200)
@@ -133,4 +137,4 @@ ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
 plt.savefig('average/Cp_x_wake_{}.pdf'.format(Da))
 plt.show()
-
+'''

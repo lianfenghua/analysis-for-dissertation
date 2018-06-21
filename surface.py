@@ -16,7 +16,11 @@ plt.rc('text', usetex=True)
 #设置横纵坐标的名称以及对应字体格式
 font = {'family': 'Times New Roman',
         'weight': 'normal',
-        'size'  : 20.5,
+        'size'  : 18,
+        }
+font2 = {'family': 'Times New Roman',
+        'weight': 'normal',
+        'size'  : 15,
         }
 
 linestyle = itertools.cycle(('-', '--', '-.', ':', (0, (3, 5, 1, 5, 1, 5)), (0, (1, 1))))
@@ -26,7 +30,7 @@ linestyle = itertools.cycle(('-', '--', '-.', ':', (0, (3, 5, 1, 5, 1, 5)), (0, 
 fig, ax = plt.subplots(dpi=200)
 
 #设置坐标刻度值的大小以及刻度值的字体
-plt.tick_params(labelsize=18)  
+plt.tick_params(labelsize=15)  
 labels = ax.get_xticklabels() + ax.get_yticklabels()
 [label.set_fontname('Times New Roman') for label in labels]
 
@@ -44,10 +48,10 @@ ax.set_xticks([0, 30, 60, 90, 120, 150, 180])
 ax.set_xlabel(r'$\theta[^\circ]$', fontdict=font)
 ax.set_ylabel(r'$C_p$', fontdict=font)
 
-plt.legend()
+plt.legend(prop=font2)
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('average/Cp_theta_{}.pdf'.format(Da))
+plt.savefig('average/Cp_theta_{}new.pdf'.format(Da))
 plt.show()
 
 '''

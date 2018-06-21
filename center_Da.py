@@ -18,6 +18,10 @@ font = {'family': 'Times New Roman',
         'weight': 'normal',
         'size'  : 20.5,
         }
+font2 = {'family': 'Times New Roman',
+        'weight': 'normal',
+        'size'  : 18,
+        }
 
 linestyle = itertools.cycle(('-', '--', '-.'))
 
@@ -43,13 +47,13 @@ ax.set_xlim(-30, 30)
 ax.set_xlabel(r'$x$', fontdict=font)
 ax.set_ylabel(r'$\overline{u}$', fontdict=font)
 
-plt.legend()
+plt.legend(prop=font2)
 ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
-plt.savefig('average/u_x_Re{}.pdf'.format(Re))
+plt.savefig('average/u_x_Re{}new.pdf'.format(Re))
 plt.show()
 
-
+'''
 #放大u
 fig, ax = plt.subplots(dpi=200)
 
@@ -130,4 +134,4 @@ ax.grid(linestyle=':', linewidth=.2)
 fig.tight_layout()
 plt.savefig('average/Cp_x_wake_Re{}.pdf'.format(Re))
 plt.show()
-
+'''
